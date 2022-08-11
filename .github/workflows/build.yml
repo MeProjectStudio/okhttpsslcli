@@ -6,9 +6,6 @@ on:
   pull_request:
     branches: [ "master" ]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
 jobs:
   build:
     name: Build okhttpsslcli for ${{ matrix.os }}
@@ -30,6 +27,7 @@ jobs:
         run: |
           ./gradlew nativeCompile
       - name: Upload artifact
+        uses: actions/upload-artifact@v3
         with:
-         name: okhttpsslcli-${{ matrix.os }}
-         path: build/native/nativeCompile/okhttpsslcli*
+          name: okhttpsslcli-${{ matrix.os }}
+          path: build/native/nativeCompile/okhttpsslcli[^txtpdb]
