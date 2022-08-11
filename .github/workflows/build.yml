@@ -30,4 +30,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: okhttpsslcli-${{ matrix.os }}
-          path: build/native/nativeCompile/okhttpsslcli[!exepdb]
+          path: build/native/nativeCompile/okhttpsslcli[!tpdb]
